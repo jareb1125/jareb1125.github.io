@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Historia ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.container{
+margin-top:60px;
+}
+
+button{
+background:white;
+color:#ff4d6d;
+border:none;
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ffe5ec;
+}
+
+img{
+width:250px;
+border-radius:15px;
+margin-top:20px;
+}
+
+#game{
+font-size:22px;
+margin-top:20px;
+padding:20px;
+}
+
+/* corazones */
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:25px;
+animation:flotar 6s linear infinite;
+}
+
+@keyframes flotar{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h1>❤️ Christian + Valeria ❤️</h1>
+<h2>6 años de nuestra historia</h2>
+
+<div id="game">
+
+<p>Hola Valeria 💕</p>
+<p>Hoy quiero recordar nuestra historia contigo...</p>
+
+<img src="foto1.jpg">
+
+<br><br>
+
+<button onclick="p1()">Empezar</button>
+
+</div>
+
+</div>
+
+<script>
+
+function p1(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Cómo nos conocimos?</p>
+
+<button onclick="error()">En la escuela</button>
+<button onclick="correcto()">En una fiesta</button>
+<button onclick="error()">En internet</button>
+
+<img src="foto1.jpg">
+`;
+}
+
+function p2(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Qué fue lo primero que te dije cuando hablamos?</p>
+
+<button onclick="error()">Hola, ¿cómo estás?</button>
+<button onclick="error()">¿Qué haces?</button>
+<button onclick="correcto2()">¿Estas triste?</button>
+
+<img src="foto2.jpg">
+`;
+}
+
+function p3(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Quién dijo "te amo" primero?</p>
+
+<button onclick="error()">Valeria</button>
+<button onclick="correcto3()">Christian</button>
+
+<img src="foto3.jpg">
+`;
+}
+
+function p4(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Qué fue lo primero que te di cuando fuimos novios?</p>
+
+<button onclick="error()">Una cartita</button>
+<button onclick="correcto4()">Una leche de chocolate</button>
+<button onclick="error()">Una sudadera</button>
+
+`;
+}
+
+function p5(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Cuál fue nuestra primera cita?</p>
+
+<button onclick="error()">Salir juntos a comer</button>
+<button onclick="error()">Ir al cine</button>
+<button onclick="correcto5()">Ir al parque</button>
+
+<img src="foto4.jpg">
+`;
+}
+
+function p6(){
+document.getElementById("game").innerHTML=`
+
+<p>¿Qué comimos el día que fui a tu casa por primera vez?</p>
+
+<button onclick="error()">Sopes</button>
+<button onclick="final()">Enmoladas</button>
+<button onclick="error()">Pozole</button>
+
+`;
+}
+
+function correcto(){
+p2();
+}
+
+function correcto2(){
+p3();
+}
+
+function correcto3(){
+p4();
+}
+
+function correcto4(){
+p5();
+}
+
+function correcto5(){
+p6();
+}
+
+function error(){
+alert("Mmm... creo que esa no es nuestra historia ❤️ intenta otra vez");
+}
+
+function final(){
+
+document.getElementById("game").innerHTML=`
+
+<h1>🎉 Feliz Aniversario 🎉</h1>
+
+<h2>Valeria ❤️</h2>
+
+<p>Hoy celebramos 6 añitos juntos.</p>
+
+<p>Desde el día que te conocí supe que mi vida cambiaría,</p>
+
+<p>Supe que me quería quedar contigo para siempre.</p>
+
+<p>Gracias por todo lo que hemos vivido y agauntarme tanto</p>
+
+<p>Con amor y mucho cariño:</p>
+<h2>Christian</h2>
+
+<img src="foto4.jpg">
+
+`;
+}
+
+/* corazones */
+
+function crearCorazon(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(crearCorazon,300);
+
+</script>
+
+</body>
+</html>
